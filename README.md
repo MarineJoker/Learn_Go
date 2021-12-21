@@ -1,6 +1,6 @@
 # 第八周分布式缓存、分布式事务
 
-### 使用 redis benchmark 工具, 测试 10 20 50 100 200 1k 5k 字节 value 大小，redis get set 性能。
+### 1、使用 redis benchmark 工具, 测试 10 20 50 100 200 1k 5k 字节 value 大小，redis get set 性能。
 ```
 byte:10
 ====== SET ======
@@ -285,7 +285,7 @@ redis-benchmark -n 100000 -d {byte} -t set,get
 只有当数据到100k时，响应时间则随着数据量而提高，这里则应该是数据量大导致的redis 内部的数据IO操作耗时升高产生的  
 
 
-### 写入一定量的 kv 数据, 根据数据大小 1w-50w 自己评估, 结合写入前后的 info memory 信息 , 分析上述不同 value 大小下，平均每个 key 的占用内存空间。
+### 2、写入一定量的 kv 数据, 根据数据大小 1w-50w 自己评估, 结合写入前后的 info memory 信息 , 分析上述不同 value 大小下，平均每个 key 的占用内存空间。
 依次用如下命令插入随机KEY，每次测试前flushdb一下，验证 10,20,50,100 来分析内存消耗
 
 ```
